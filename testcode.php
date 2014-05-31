@@ -12,6 +12,23 @@ and open the template in the editor.
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript" src="js/autocomplete.js"></script>
         <link rel="stylesheet" href="css/autocomplete.css"  type="text/css"/>
+        <script type="text/javascript">
+            function FillAdd(f) {
+            if(f.add_copy.checked == true) {
+            f.add_num.value = f.add2_num.value;
+            f.add_moo.value = f.add2_moo.value;
+            f.add_soi.value = f.add2_soi.value;
+            f.add_road.value = f.add2_road.value;
+            f.add_tumbon.value = f.add2_tumbon.value;
+            f.add_amphur.value = f.add2_amphur.value;
+            f.show_arti_topic3.value = f.show_arti_topic4.value;
+            f.add_post.value = f.add2_post.value;
+            f.add_tel.value = f.add2_tel.value;
+            f.add_mobi.value = f.add2_mobi.value;
+            
+              }
+            }
+        </script>
     </head>
     <body>
         
@@ -65,7 +82,76 @@ and open the template in the editor.
                         </tr>
                     </table>
             </div>
-                      
+        <div class="well">
+                    <legend>ที่อยู่</legend>
+                    <div class="inline">
+                        
+                        <strong>ที่อยู่ปัจจุบัน</strong>&nbsp;
+                        เลขที่&nbsp;<input class="input-mini" type="text" name="add_num">&nbsp;&nbsp;
+                        หมู่&nbsp;<input class="input-small" type="text" name="add_moo">&nbsp;&nbsp;
+                        ซอย&nbsp;<input class="input-small" type="text" name="add_soi">&nbsp;&nbsp;
+                        ถนน&nbsp;<input class="input" type="text" name="add_road">&nbsp;&nbsp;
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        ตำบล/แขวง&nbsp;<input class="input" type="text" name="add_tumbon">&nbsp;&nbsp;
+                        อำเภอ/เขต&nbsp;<input class="input" type="text" name="add_amphur">&nbsp;&nbsp;
+                        จังหวัด&nbsp;<input name="show_arti_topic3" type="text" id="show_arti_topic3" class="input-medium" />
+                                   <input name="h_arti_id3" type="hidden" id="h_arti_id3" value="" />
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        รหัสไปรษณีย์&nbsp;<input class="input" type="text" name="add_post">&nbsp;&nbsp;
+                        โทรศัพท์&nbsp;<input class="input" type="text" name="add_tel">&nbsp;&nbsp;
+                        มือถือ&nbsp;<input class="input" type="text" name="add_mobi">&nbsp;&nbsp;
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        <label class="checkbox">
+                            <input type="checkbox" value="Y" name="add_copy" onclick="FillAdd(this.form)"> ตามที่อยู่ปัจจุบัน
+                        </label>
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        <strong>ที่อยู่ตามทะเบียนบ้าน</strong>&nbsp;
+                        เลขที่&nbsp;<input class="input-mini" type="text" name="add2_num">&nbsp;&nbsp;
+                        หมู่&nbsp;<input class="input-small" type="text" name="add2_moo">&nbsp;&nbsp;
+                        ซอย&nbsp;<input class="input-small" type="text" name="add2_soi">&nbsp;&nbsp;
+                        ถนน&nbsp;<input class="input" type="text" name="add2_road">&nbsp;&nbsp;
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        ตำบล/แขวง&nbsp;<input class="input" type="text" name="add2_tumbon">&nbsp;&nbsp;
+                        อำเภอ/เขต&nbsp;<input class="input" type="text" name="add2_amphur">&nbsp;&nbsp;
+                        จังหวัด&nbsp;<input name="show_arti_topic4" type="text" id="show_arti_topic4" class="input-medium" />
+                                   <input name="h_arti_id4" type="hidden" id="h_arti_id4" value="" />
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        รหัสไปรษณีย์&nbsp;<input class="input" type="text" name="add2_post">&nbsp;&nbsp;
+                        โทรศัพท์&nbsp;<input class="input" type="text" name="add2_tel">&nbsp;&nbsp;
+                        มือถือ&nbsp;<input class="input" type="text" name="add2_mobi">&nbsp;&nbsp;
+                        
+                    </div>
+                    <div class="inline">
+                        
+                        
+                        
+                    </div>
+                    
+            </div>              
         </form>
                       
         <script src="js/jquery-1.10.2.js"></script>
@@ -90,5 +176,6 @@ and open the template in the editor.
             // make_autocom(" id ของ input ตัวที่ต้องการกำหนด "," id ของ input ตัวที่ต้องการรับค่า");
             make_autocom("show_arti_topic","h_arti_id");
         </script>
+        
     </body>
 </html>

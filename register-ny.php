@@ -17,6 +17,13 @@
         
     </head>
     <body>
+        <style>
+             body {
+                background-image:url('img/bg-login.jpg');
+                background-repeat:repeat;
+                background-attachment:fixed;
+                }
+        </style>
         <?php require_once "mainmenu.html";?>
         <br><br><br>
         <div class="container" id="border">
@@ -211,7 +218,7 @@
                     <div class="inline">
                         
                         <label class="checkbox">
-                            <input type="checkbox" value="Y" name="add_copy"> ตามที่อยู่ปัจจุบัน
+                            <input type="checkbox" value="Y" name="add_copy" onClick="cform(this.form)" id="chk"> ตามที่อยู่ปัจจุบัน
                         </label>
                         
                     </div>
@@ -986,6 +993,34 @@
             make_autocom("show_arti_topic5","h_arti_id5");
             make_autocom("show_arti_topic6","h_arti_id6");
         </script> 
-        
+        <script language="javascript" type="text/javascript">
+            function cform(form) {
+                    if(form["chk"].checked) {
+                            form["add2_num"].value = form["add_num"].value;
+                            form["add2_moo"].value = form["add_moo"].value;
+                            form["add2_soi"].value = form["add_soi"].value;
+                            form["add2_road"].value = form["add_road"].value;
+                            form["add2_tumbon"].value = form["add_tumbon"].value;
+                            form["add2_amphur"].value = form["add_amphur"].value;
+                            form["show_arti_topic4"].value = form["show_arti_topic3"].value;
+                            form["add2_post"].value = form["add_post"].value;
+                            form["add2_tel"].value = form["add_tel"].value;
+                            form["add2_mobi"].value = form["add_mobi"].value;
+                        }
+                    else {
+                            form["add2_num"].value = "";
+                            form["add2_moo"].value = "";
+                            form["add2_soi"].value = "";
+                            form["add2_road"].value = "";
+                            form["add2_tumbon"].value = "";
+                            form["add2_amphur"].value = "";
+                            form["show_arti_topic4"].value = "";
+                            form["add2_post"].value = "";
+                            form["add2_tel"].value = "";
+                            form["add2_mobi"].value = "";
+                    }
+            }
+
+        </script>
     </body>
 </html>
