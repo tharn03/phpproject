@@ -171,7 +171,127 @@
                         ,'$idperson_info'
                         )
                         ");
+     
+    //Insert into app_info
+          
+          mysql_query("INSERT INTO app_info (twork_start,twork_stop,twork_name,twork_class,twork_cate,twork_position,twork_add
+              ,twork_contact,twork_tel,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['twork_start']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_stop']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_class']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_cate']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_position']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_add']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_contact']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['twork_tel']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
 
+    //Insert into skill_info
+          
+          mysql_query("INSERT INTO skill_info (exp_typ,exp_typ_thai,exp_typ_eng,exp_drive_m,exp_lic_m,exp_lic_m_num,exp_drive_c
+              ,exp_lic_c,exp_lic_c_num,exp_com1,exp_com2,exp_com3,exp_off1,exp_off2,exp_off3,exp_sport1,exp_sport2,exp_sport3
+              ,exp_oth1,exp_oth2,exp_oth3,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['exp_typ']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_typ_thai']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_typ_eng']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_drive_m']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lic_m']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lic_m_num']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_drive_c']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lic_c']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lic_c_num']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_com1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_com2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_com3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_off1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_off2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_off3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_sport1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_sport2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_sport3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_oth1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_oth2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_oth3']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+          
+    //Insert into lang_info
+          
+          mysql_query("INSERT INTO lang_info (
+              exp_lang_1,exp_lang_l_1,exp_lang_s_1,exp_lang_r_1,exp_lang_w_1
+              ,exp_lang_2,exp_lang_l_2,exp_lang_s_2,exp_lang_r_2,exp_lang_w_2
+              ,exp_lang_3,exp_lang_l_3,exp_lang_s_3,exp_lang_r_3,exp_lang_w_3
+              ,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['exp_lang_1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_l_1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_s_1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_r_1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_w_1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_l_2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_s_2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_r_2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_w_2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_l_3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_s_3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_r_3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['exp_lang_w_3']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+          
+    //Insert into training_info
+          
+          foreach($_POST['trn_name'] AS $i => $text1) {
+               if($_POST['trn_name'][$i]==""){
+                   break;
+               }
+               else{
+                    mysql_query("INSERT INTO training_info (trn_name,trn_h,trn_d,trn_m,trn_y,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['trn_name'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['trn_h'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['trn_d'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['trn_m'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['trn_y'][$i]))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+               }
+          }
+          
+    //Insert into couple_info
+          
+          mysql_query("INSERT INTO couple_info (cou_st,cou_num,cou_y,cou_salary,cou_name,cou_b,cou_add,cou_moo,cou_soi,cou_road
+              ,cou_tumbon,cou_amphur,cou_prov,cou_post,cou_tel,cou_mobi,cou_work,cou_off,cou_baby_num,cou_baby,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['cou_st']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_num']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_y']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_salary']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_b']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_add']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_moo']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_soi']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_road']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_tumbon']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_amphur']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['show_arti_topic5']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_post']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_tel']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_mobi']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_work']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_off']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_baby_num']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['cou_baby']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+          
     //,'".mysql_real_escape_string(unmq($_POST['date']))."'
     mysql_close();
     ?>

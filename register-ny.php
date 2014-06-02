@@ -487,7 +487,7 @@
                         <label class="radio">
                             <input type="radio" name="exp_drive_c" value="2" > ไม่ได้
                         </label>&nbsp;&nbsp;
-                        ใบอนุญาติขับขี่
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ใบอนุญาติขับขี่
                         <label class="radio">
                             <input type="radio" name="exp_lic_c" value="1" checked> มี
                         </label>
@@ -530,45 +530,70 @@
                     <table class="table table-bordered">
                         <tr class="info">
                             <td style="text-align: center" width='180' rowspan="2">ภาษา</td>
-                            <td style="text-align: center" width='240' colspan="3">พูด</td>
-                            <td style="text-align: center" width='240' colspan="3">อ่าน</td>
-                            <td style="text-align: center" width='240' colspan="3">เขียน</td>
+                            <td style="text-align: center" width='200' colspan="3">ฟัง</td>
+                            <td style="text-align: center" width='200' colspan="3">พูด</td>
+                            <td style="text-align: center" width='200' colspan="3">อ่าน</td>
+                            <td style="text-align: center" width='200' colspan="3">เขียน</td>
                         </tr>
                         <tr class="info">
                             
-                            <td style="text-align: center" width='80'>ดี</td>
-                            <td style="text-align: center" width='80'>ปานกลาง</td>
-                            <td style="text-align: center" width='80'>พอใช้</td>
-                            <td style="text-align: center" width='80'>ดี</td>
-                            <td style="text-align: center" width='80'>ปานกลาง</td>
-                            <td style="text-align: center" width='80'>พอใช้</td>
-                            <td style="text-align: center" width='80'>ดี</td>
-                            <td style="text-align: center" width='80'>ปานกลาง</td>
-                            <td style="text-align: center" width='80'>พอใช้</td>
+                            <td style="text-align: center" width='50'>ดี</td>
+                            <td style="text-align: center" width='50'>กลาง</td>
+                            <td style="text-align: center" width='50'>พอใช้</td>
+                            <td style="text-align: center" width='50'>ดี</td>
+                            <td style="text-align: center" width='50'>กลาง</td>
+                            <td style="text-align: center" width='50'>พอใช้</td>
+                            <td style="text-align: center" width='50'>ดี</td>
+                            <td style="text-align: center" width='50'>กลาง</td>
+                            <td style="text-align: center" width='50'>พอใช้</td>
+                            <td style="text-align: center" width='50'>ดี</td>
+                            <td style="text-align: center" width='50'>กลาง</td>
+                            <td style="text-align: center" width='50'>พอใช้</td>
                         </tr>
                         <tr>
                             <td style="text-align: center"><input class="input" type="text" name="exp_lang_1"></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_s" value="1" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_s" value="2" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_s" value="3" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_r" value="1" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_r" value="2" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_r" value="3" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_w" value="1" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_w" value="2" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_1_w" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_1" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_1" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_1" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_1" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_1" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_1" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_1" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_1" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_1" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_1" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_1" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_1" value="1" ></td>
                         </tr>
                         <tr>
                             <td style="text-align: center"><input class="input" type="text" name="exp_lang_2"></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_s" value="1" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_s" value="2" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_s" value="3" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_r" value="1" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_r" value="2" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_r" value="3" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_w" value="1" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_w" value="2" ></td>
-                            <td style="text-align: center"><input type="radio" name="exp_lang_2_w" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_2" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_2" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_2" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_2" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_2" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_2" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_2" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_2" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_2" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_2" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_2" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_2" value="1" ></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center"><input class="input" type="text" name="exp_lang_3"></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_3" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_3" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_l_3" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_3" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_3" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_s_3" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_3" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_3" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_r_3" value="1" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_3" value="3" ></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_3" value="2" checked></td>
+                            <td style="text-align: center"><input type="radio" name="exp_lang_w_3" value="1" ></td>
                         </tr>
                     </table>
                     
@@ -614,7 +639,7 @@
                     <div class="inline">
                         
                         <label class="radio">
-                            <input type="radio" name="cou_st" value="1">ไม่มีคู่สมรส&nbsp; 
+                            <input type="radio" name="cou_st" value="1" checked>ไม่มีคู่สมรส&nbsp; 
                         </label>
                         <label class="radio">
                             <input type="radio" name="cou_st" value="3">หย่า&nbsp; 
@@ -625,7 +650,7 @@
                         <label class="radio">
                             <input type="radio" name="cou_st" value="2">สมรสจดทะเบียน&nbsp; 
                         </label>
-                        เลขที่&nbsp;<input type="text" name="cou_num">
+                        เลขที่&nbsp;<input type="text" name="cou_num">&nbsp;&nbsp;
                         ปี พ.ศ.<input type="text" name="cou_y">&nbsp;&nbsp;
                         
                         
@@ -638,7 +663,7 @@
                             <input type="radio" name="cou_salary" value="1">มี&nbsp; 
                         </label>
                         <label class="radio">
-                            <input type="radio" name="cou_salary" value="2">ไม่มี&nbsp; 
+                            <input type="radio" name="cou_salary" value="2" checked>ไม่มี&nbsp; 
                         </label>&nbsp; &nbsp; 
                         
                     </div>
@@ -646,14 +671,14 @@
                     <div class="inline">
                         
                         ชื่อ-สกุลสามี/ภรรยา&nbsp;<input class="span3" id="prependedInput1" type="text" name="cou_name">&nbsp;&nbsp; 
-                        วัน/เดือน/ปี&nbsp;เกิด<input class="span2" id="prependedInput1" type="text" name="cou_b">
+                        วัน/เดือน/ปี&nbsp;เกิด&nbsp;<input class="span2" id="prependedInput1" type="date" name="cou_b">
                         
                     </div>
                     <br>
                     <div class="inline">
                         
                         ที่อยู่เลขที่&nbsp;<input class="input-mini" type="text" name="cou_add">&nbsp;&nbsp;
-                        หมู่&nbsp;<input class="input-small" type="text" name="cou_mou">&nbsp;&nbsp;
+                        หมู่&nbsp;<input class="input-small" type="text" name="cou_moo">&nbsp;&nbsp;
                         ซอย&nbsp;<input class="input-small" type="text" name="cou_soi">&nbsp;&nbsp;
                         ถนน&nbsp;<input class="input" type="text" name="cou_road">&nbsp;&nbsp;
                         
@@ -690,7 +715,7 @@
                             <input type="radio" name="cou_baby" value="1">กำลังศึกษา&nbsp; 
                         </label>
                         <label class="radio">
-                            <input type="radio" name="cou_baby" value="2">ไม่ศึกษา&nbsp; 
+                            <input type="radio" name="cou_baby" value="2" checked>ไม่ศึกษา&nbsp; 
                         </label>&nbsp; &nbsp; 
                         
                     </div>
