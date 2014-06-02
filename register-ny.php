@@ -361,22 +361,22 @@
                     <hr>
                     <div class="inline">
                         
-                        **อาชีพอิสระ/อาชีพเสริม&nbsp;<input class="input" type="text" name="work2_txt[]">&nbsp;&nbsp;
-                        ตำแหน่ง&nbsp;<input class="input" type="text" name="work2_position[]">&nbsp;&nbsp;
+                        **อาชีพอิสระ/อาชีพเสริม&nbsp;<input class="input" type="text" name="work2_txt">&nbsp;&nbsp;
+                        ตำแหน่ง&nbsp;<input class="input" type="text" name="work2_position">&nbsp;&nbsp;
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        บริษัท&nbsp;<input class="span2" type="text" name="work2_name[]">&nbsp;&nbsp;
-                        รายได้&nbsp;<input class="input" type="text" name="work2_salary[]">&nbsp;&nbsp;
-                        ผู้ติดต่อได้&nbsp;<input class="input" type="tel" name="work2_contact[]">&nbsp;&nbsp;
+                        บริษัท&nbsp;<input class="span2" type="text" name="work2_name">&nbsp;&nbsp;
+                        รายได้&nbsp;<input class="input" type="text" name="work2_salary">&nbsp;&nbsp;
+                        ผู้ติดต่อได้&nbsp;<input class="input" type="tel" name="work2_contact">&nbsp;&nbsp;
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        หมายเหตุ&nbsp;<input class="input-xxlarge" type="text" name="work2_star[]">&nbsp;&nbsp;
+                        หมายเหตุ&nbsp;<input class="input-xxlarge" type="text" name="work2_star">&nbsp;&nbsp;
                         
                     </div>
                     <hr>
@@ -384,31 +384,31 @@
                     <br>
                     <div class="inline">
                         
-                        บริษัท&nbsp;<input class="input-large" type="text" name="work3_name[]">&nbsp;&nbsp;
-                        วันที่เริ่ม&nbsp;<input class="input" type="date" name="work3_start[]">&nbsp;&nbsp;
-                        วันที่ออก&nbsp;<input class="input" type="date" name="work3_stop[]">&nbsp;&nbsp;
+                        บริษัท&nbsp;<input class="input-large" type="text" name="work3_name">&nbsp;&nbsp;
+                        วันที่เริ่ม&nbsp;<input class="input" type="date" name="work3_start">&nbsp;&nbsp;
+                        วันที่ออก&nbsp;<input class="input" type="date" name="work3_stop">&nbsp;&nbsp;
 
                     </div>
                     <br>
                     <div class="inline">
                         
-                        ตำแหน่ง&nbsp;<input class="input" type="text" name="work3_position[]">&nbsp;&nbsp;
-                        ลักษณะงาน&nbsp;<input class="input" type="text" name="work3_class[]">&nbsp;&nbsp;
-                        สาเหตุที่ออก&nbsp;<input class="input" type="text" name="work3_cause[]">&nbsp;&nbsp;
+                        ตำแหน่ง&nbsp;<input class="input" type="text" name="work3_position">&nbsp;&nbsp;
+                        ลักษณะงาน&nbsp;<input class="input" type="text" name="work3_class">&nbsp;&nbsp;
+                        สาเหตุที่ออก&nbsp;<input class="input" type="text" name="work3_cause">&nbsp;&nbsp;
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        เงินเดือนออกเมื่อ&nbsp;<input class="span2" type="date" name="work3_salary[]">&nbsp;&nbsp;
-                        ผู้ที่ติดต่อได้&nbsp;<input class="input" type="text" name="work3_contact[]">&nbsp;&nbsp;
-                        โทรศัพท์&nbsp;<input class="input" type="tel" name="work3_tel[]">&nbsp;&nbsp;
+                        เงินเดือนออกเมื่อ&nbsp;<input class="span2" type="date" name="work3_salary">&nbsp;&nbsp;
+                        ผู้ที่ติดต่อได้&nbsp;<input class="input" type="text" name="work3_contact">&nbsp;&nbsp;
+                        โทรศัพท์&nbsp;<input class="input" type="tel" name="work3_tel">&nbsp;&nbsp;
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        หมายเหตุ&nbsp;<input class="input-xxlarge" type="text" name="work3_star[]">&nbsp;&nbsp;
+                        หมายเหตุ&nbsp;<input class="input-xxlarge" type="text" name="work3_star">&nbsp;&nbsp;
                         
                     </div>
                     

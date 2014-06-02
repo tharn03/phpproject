@@ -69,7 +69,7 @@
 
     mysql_query(
             "INSERT INTO add_info (add_num,add_moo,add_soi,add_road,add_tumbon,add_amphur,add_prov,add_post,add_tel,add_mobi
-                ,add_copy,add2_num,add2_moo,add2_soi,add2_road,add2_tumbon,add2_amphur,add2_prov,add2_post,add2_tel,add2_mobi,person_info_idperson_info) VALUES (
+                ,add2_num,add2_moo,add2_soi,add2_road,add2_tumbon,add2_amphur,add2_prov,add2_post,add2_tel,add2_mobi,person_info_idperson_info) VALUES (
             '".mysql_real_escape_string(unmq($_POST['add_num']))."'
             ,'".mysql_real_escape_string(unmq($_POST['add_moo']))."'
             ,'".mysql_real_escape_string(unmq($_POST['add_soi']))."'
@@ -80,7 +80,6 @@
             ,'".mysql_real_escape_string(unmq($_POST['add_post']))."'
             ,'".mysql_real_escape_string(unmq($_POST['add_tel']))."'
             ,'".mysql_real_escape_string(unmq($_POST['add_mobi']))."'
-            ,'".mysql_real_escape_string(unmq($_POST['add_copy']))."'
             ,'".mysql_real_escape_string(unmq($_POST['add2_num']))."'
             ,'".mysql_real_escape_string(unmq($_POST['add2_moo']))."'
             ,'".mysql_real_escape_string(unmq($_POST['add2_soi']))."'
@@ -97,32 +96,82 @@
     
     //Insert into edu_info
     
-    foreach($_POST['edu_num'] AS $i => $text1) {
-               if($_POST['edu_num'][$i]==""){
-                   echo "+++END FOREACH+++";
+        foreach($_POST['edu_num'] AS $i => $text1) {
+                   if($_POST['edu_num'][$i]==""){
+                       break;
+                   }
+                   else{
+                        mysql_query("INSERT INTO edu_info (edu_num,edu_eb,edu_name,edu_year,edu_gpa,edu_fac,edu_maj,person_info_idperson_info) VALUES (
+                            '".mysql_real_escape_string(unmq($_POST['edu_num'][$i]))."'
+                            ,'".mysql_real_escape_string(unmq($_POST['edu_eb'][$i]))."'
+                            ,'".mysql_real_escape_string(unmq($_POST['edu_name'][$i]))."'
+                            ,'".mysql_real_escape_string(unmq($_POST['edu_year'][$i]))."'
+                            ,'".mysql_real_escape_string(unmq($_POST['edu_gpa'][$i]))."'
+                            ,'".mysql_real_escape_string(unmq($_POST['edu_fac'][$i]))."'
+                            ,'".mysql_real_escape_string(unmq($_POST['edu_maj'][$i]))."'
+                            ,'$idperson_info'
+                            )
+                            ");
+                   }
+              }
+    
+    //Insert into work_info #1
+          
+          foreach($_POST['work_name'] AS $i => $text1) {
+               if($_POST['work_name'][$i]==""){
                    break;
                }
                else{
-                    mysql_query("INSERT INTO edu_info (edu_num,edu_eb,edu_name,edu_year,edu_gpa,edu_fac,edu_maj,person_info_idperson_info) VALUES (
-                        '".mysql_real_escape_string(unmq($_POST['edu_num'][$i]))."'
-                        ,'".mysql_real_escape_string(unmq($_POST['edu_eb'][$i]))."'
-                        ,'".mysql_real_escape_string(unmq($_POST['edu_name'][$i]))."'
-                        ,'".mysql_real_escape_string(unmq($_POST['edu_year'][$i]))."'
-                        ,'".mysql_real_escape_string(unmq($_POST['edu_gpa'][$i]))."'
-                        ,'".mysql_real_escape_string(unmq($_POST['edu_fac'][$i]))."'
-                        ,'".mysql_real_escape_string(unmq($_POST['edu_maj'][$i]))."'
+                    mysql_query("INSERT INTO work_info (work_name,work_start,work_stop,work_position,work_class,work_cause,work_salary
+                        ,work_contact,work_tel,work_star,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['work_name'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_start'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_stop'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_position'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_class'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_cause'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_salary'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_contact'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_tel'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_star'][$i]))."'
                         ,'$idperson_info'
                         )
                         ");
-                    echo "value of edu_num[$i]=".$_POST['edu_num'][$i];
-                    echo " value of edu_eb[$i]=".$_POST['edu_eb'][$i];
-                    echo " value of edu_name[$i]=".$_POST['edu_name'][$i]."<br><br>";
-                    echo 'Line'.' Insert To DB Done!!!';
                }
           }
-    
-    //Insert into work_info
-    
+          
+    //Insert into work_info #2
+          
+          mysql_query("INSERT INTO work_info (work2_txt,work2_position,work2_name,work2_salary,work2_contact,work2_star
+              ,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['work2_txt']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work2_position']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work2_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work2_salary']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work2_contact']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work2_star']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+          
+    //Insert into work_info #3
+          
+          mysql_query("INSERT INTO work_info (work3_name,work3_start,work3_stop,work3_position,work3_class,work3_cause,work3_salary
+                        ,work3_contact,work3_tel,work3_star,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['work3_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_start']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_stop']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_position']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_class']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_cause']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_salary']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_contact']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_tel']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work3_star']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+
     //,'".mysql_real_escape_string(unmq($_POST['date']))."'
     mysql_close();
     ?>
