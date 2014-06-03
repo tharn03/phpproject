@@ -59,11 +59,9 @@
             ");
     
     $perid=$_POST['per_id'];
-    echo $perid."---";
     $idperson = mysql_query("SELECT idperson_info FROM person_info WHERE per_id='$perid'");
     $idperson_ar=mysql_fetch_assoc($idperson);
     $idperson_info=$idperson_ar['idperson_info'];
-    echo $idperson_info;
     
     //Insert into add_info
 
@@ -292,6 +290,117 @@
                         )
                         ");
           
+    //Insert into fam_info
+          
+          mysql_query("INSERT INTO fam_info (fam_fa_name,fam_fa_st,fam_fa_age,fam_fa_work,fam_fa_add,fam_fa_tel,fam_ma_name
+              ,fam_ma_st,fam_ma_age,fam_ma_work,fam_ma_add,fam_ma_tel,fam_ma_bro,fam_num,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['fam_fa_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_fa_st']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_fa_age']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_fa_work']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_fa_add']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_fa_tel']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_ma_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_ma_st']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_ma_age']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_ma_work']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_ma_add']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_ma_tel']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_ma_bro']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_num']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+          
+    //Insert into fam_bro_info
+          
+          foreach($_POST['fam_tb_num'] AS $i => $text1) {
+               if($_POST['fam_tb_num'][$i]==""){
+                   break;
+               }
+               else{
+                    mysql_query("INSERT INTO fam_bro_info (fam_tb_num,fam_tb_name,fam_tb_age,fam_tb_work
+                        ,fam_tb_workadd,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['fam_tb_num'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_tb_name'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_tb_age'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_tb_work'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['fam_tb_workadd'][$i]))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+               }
+          }
+          
+    //Insert into ref_info
+          
+          foreach($_POST['ref_num'] AS $i => $text1) {
+               if($_POST['ref_num'][$i]==""){
+                   break;
+               }
+               else{
+                    mysql_query("INSERT INTO ref_info (ref_num,ref_relation,ref_name,ref_age
+                        ,ref_work,ref_tel,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['ref_num'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['ref_relation'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['ref_name'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['ref_age'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['ref_work'][$i]))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['ref_tel'][$i]))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+               }
+          }
+          
+    //Insert into interest_info
+          
+          mysql_query("INSERT INTO interest_info (start_work,branch,branch_txt,branch_send,work_oth,study,study_when
+              ,study_name,study_maj,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['start_work']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['branch']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['branch_txt']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['branch_send']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['work_oth']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['study']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['study_when']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['study_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['study_maj']))."'
+                        ,'$idperson_info'
+                        )
+                        ");
+          
+    //Insert into question_info
+          
+          mysql_query("INSERT INTO question_info (chk_1,chk_2,chk_3,chk_4,chk_5,chk_5_prov,chk_6,chk_6_name,chk_7,chk_7_name
+              ,chk_7_relation,chk_7_part,chk_7_position,chk_7_tel,chk_8,chk_8_name,chk_8_relation,chk_8_add,chk_8_tel
+              ,person_info_idperson_info) VALUES (
+                        '".mysql_real_escape_string(unmq($_POST['chk_1']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_2']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_3']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_4']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_5']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['show_arti_topic6']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_6']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_6_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_7']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_7_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_7_relation']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_7_part']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_7_position']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_7_tel']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_8']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_8_name']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_8_relation']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_8_add']))."'
+                        ,'".mysql_real_escape_string(unmq($_POST['chk_8_tel']))."'
+                        
+                        ,'$idperson_info'
+                        )
+                        ");
+          
     //,'".mysql_real_escape_string(unmq($_POST['date']))."'
     mysql_close();
+    
+    header("location:thank.php");
     ?>

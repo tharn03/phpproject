@@ -730,7 +730,7 @@
                             <input type="radio" name="fam_fa_st" value="1">ถึงแก่กรรม
                         </label>
                         <label class="radio">
-                            <input type="radio" name="fam_fa_st" value="2">มีชีวิตอยู่&nbsp; 
+                            <input type="radio" name="fam_fa_st" value="2" checked>มีชีวิตอยู่&nbsp; 
                         </label>&nbsp; &nbsp; 
                         อายุ&nbsp;<input class="span1" type="text" name="fam_fa_age">&nbsp;ปี&nbsp;&nbsp;
                         อาชีพ&nbsp;<input class="span2" type="text" name="fam_fa_work">&nbsp;&nbsp;
@@ -751,7 +751,7 @@
                             <input type="radio" name="fam_ma_st" value="1">ถึงแก่กรรม
                         </label>
                         <label class="radio">
-                            <input type="radio" name="fam_ma_st" value="2">มีชีวิตอยู่&nbsp; 
+                            <input type="radio" name="fam_ma_st" value="2" checked>มีชีวิตอยู่&nbsp; 
                         </label>&nbsp; &nbsp; 
                         อายุ&nbsp;<input class="span1" type="text" name="fam_ma_age">&nbsp;ปี&nbsp;&nbsp;
                         อาชีพ&nbsp;<input class="span2" type="text" name="fam_ma_work">&nbsp;&nbsp;
@@ -854,7 +854,7 @@
                         
                         2.&nbsp;ท่านประสงค์จะทำงานกับบริษัท นิยมพานิชย์ จำกัดที่&nbsp;&nbsp;
                         <label class="radio">
-                            <input type="radio" name="branch" value="1">สำนักงานใหญ่
+                            <input type="radio" name="branch" value="1" checked>สำนักงานใหญ่
                         </label>
                         <label class="radio">
                             <input type="radio" name="branch" value="2">สาขา&nbsp;<input class="span2" type="text" name="branch_txt">
@@ -869,7 +869,7 @@
                         
                         3.&nbsp;ท่านยินดีให้ทางบริษัท นิยมพานิชย์ จำกัด ส่งใบสมัครของท่านไปให้บริษัทฯ ในเครือเลือกในตำแหน่งที่ท่านสมัคร&nbsp;
                         <label class="radio">
-                            <input type="radio" name="branch_send" value="1">ยินดี
+                            <input type="radio" name="branch_send" value="1" checked>ยินดี
                         </label>
                         <label class="radio">
                             <input type="radio" name="branch_send" value="2">ไม่ยินดี
@@ -887,7 +887,7 @@
                         
                         5.&nbsp;ท่านมีแผนที่จะศึกษาต่อหรือไม่&nbsp;
                         <label class="radio">
-                            <input type="radio" name="study" value="1">ไม่มี
+                            <input type="radio" name="study" value="1" checked>ไม่มี
                         </label>
                         <label class="radio">
                             <input type="radio" name="study" value="1">มี
