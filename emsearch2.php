@@ -4,6 +4,11 @@
     require_once "nocache.inc.php";
     require_once "datahelper.inc.php";
     
+    $id = $_POST['id'];
+    
+    $result = mysql_query("SELECT * FROM person_info WHERE idperson_info like '%$id%' OR position1 like '%$id%' OR corp like '%$id%' OR position2 like '%$id%' OR fname like '%$id%' OR lname like '%$id%' OR per_id like '%$id%'");
+    $count = mysql_num_rows($result);
+    /**/
     mysql_close();
 ?>
 <html>
@@ -36,7 +41,7 @@
             </div>
             <br>
             <div class="well">
-                    <legend>ผลการค้นหา พบ 3 รายการ</legend>
+                    <legend>ผลการค้นหา พบ <?php echo $count; ?> รายการ</legend>
                     <table width='900' class="table table-bordered">
                         <tr class="info">
                             <td style="text-align: center">ลำดับ</td>
@@ -44,37 +49,22 @@
                             <td style="text-align: center">บริษัท</td>
                             <td style="text-align: center">ตำแหน่ง</td>
                             <td style="text-align: center">ชื่อ-สกุล</td>
-                            <td style="text-align: center"">เลขประชาชน</td>
+                            <td style="text-align: center">เลขประชาชน</td>
                             <td style="text-align: center">รายละเอียด</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>176</td>
-                            <td>NY</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ9</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>175</td>
-                            <td>NW</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ8</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>174</td>
-                            <td>NY</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ7</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
                         
+                        <?php $i='1';?>
+                        <?php while($searchresult = mysql_fetch_array($result)) { ?>
+                        <tr>
+                            <td><?php echo $i; ?></td>
+                            <td><?php echo $searchresult['idperson_info']; ?></td>
+                            <td><?php echo $searchresult['corp']; ?></td>
+                            <td><?php echo $searchresult['position1']; ?></td>
+                            <td><?php echo $searchresult['fname']; ?>&nbsp;<?php echo $searchresult['lname']; ?></td>
+                            <td><?php echo $searchresult['per_id']; ?></td>
+                            <td><a href="emedit.php?id=<?php echo $searchresult['idperson_info']; ?>">รายละเอียด</a></td>
+                        </tr>
+                        <?php  $i++; } ?>
                      </table>
             </div>
         </div>

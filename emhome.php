@@ -4,6 +4,9 @@
     require_once "nocache.inc.php";
     require_once "datahelper.inc.php";
     
+    $result = mysql_query("SELECT * FROM person_info");
+    $count = mysql_num_rows($result);
+    
     mysql_close();
 ?>
 <html>
@@ -36,7 +39,7 @@
             </div>
             <br>
             <div class="well">
-                    <legend>รายชื่อใบสมัครงานทั้งหมด</legend>
+                    <legend>รายชื่อใบสมัครงานทั้งหมด <?php echo $count; ?> รายการ</legend>
                     <table width='900' class="table table-bordered">
                         <tr class="info">
                             <td style="text-align: center">ลำดับ</td>
@@ -47,87 +50,18 @@
                             <td style="text-align: center"">เลขประชาชน</td>
                             <td style="text-align: center">รายละเอียด</td>
                         </tr>
+                        <?php $i='1';?>
+                        <?php while($searchresult = mysql_fetch_array($result)) { ?>
                         <tr>
-                            <td>1</td>
-                            <td>176</td>
-                            <td>NY</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ9</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
+                            <td><?php echo $i; ?></td>
+                            <td><?php echo $searchresult['idperson_info']; ?></td>
+                            <td><?php echo $searchresult['corp']; ?></td>
+                            <td><?php echo $searchresult['position1']; ?></td>
+                            <td><?php echo $searchresult['fname']; ?>&nbsp;<?php echo $searchresult['lname']; ?></td>
+                            <td><?php echo $searchresult['per_id']; ?></td>
+                            <td><a href="emedit.php?id=<?php echo $searchresult['idperson_info']; ?>">รายละเอียด</a></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>175</td>
-                            <td>NW</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ8</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>174</td>
-                            <td>NY</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ7</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>173</td>
-                            <td>TC</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ6</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>172</td>
-                            <td>TC</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ5</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>171</td>
-                            <td>MSD</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ4</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>170</td>
-                            <td>NY</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ3</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>169</td>
-                            <td>NY</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ2</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>168</td>
-                            <td>MTA</td>
-                            <td>พนักงานรักษาความปลอดภัย</td>
-                            <td>ทดสอบ1</td>
-                            <td>1958382608964</td>
-                            <td><a href='#'>รายละเอียด</a></td>
-                        </tr>
+                        <?php  $i++; } ?>
                      </table>
             </div>
         </div>
