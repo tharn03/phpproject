@@ -24,7 +24,7 @@
                 background-attachment:fixed;
                 }
         </style>
-        <?php require_once "mainmenu.html";?>
+        <?php require_once "emmenu.html";?>
         <br><br><br>
         <div class="container" id="border">
             <form id="signup" class="form-inline" method="post" action="register_i.php">

@@ -394,13 +394,15 @@
                         ,'".mysql_real_escape_string(unmq($_POST['chk_8_relation']))."'
                         ,'".mysql_real_escape_string(unmq($_POST['chk_8_add']))."'
                         ,'".mysql_real_escape_string(unmq($_POST['chk_8_tel']))."'
-                        
                         ,'$idperson_info'
                         )
                         ");
           
-    //,'".mysql_real_escape_string(unmq($_POST['date']))."'
     mysql_close();
     
-    header("location:thank.php");
+    echo require_once "register_up.php";
+    echo $idperson_info;
+    echo require_once "register_down.php";
+    
+    //header("location:thank.php");
     ?>

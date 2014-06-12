@@ -28,13 +28,11 @@
         <br><br><br>
         <div class="container" id="border">
             <form id="signup" class="form-inline" method="post" action="register_i.php">
-                <input type="hidden" name="corp" value="NY" >
+                <input type="hidden" name="corp" value="TC" >
             <div>
-                <center>
                 <img src="img/nylogo.gif" width="80">
                 &nbsp;&nbsp;
                 <img src="img/nytxt.gif" width="300">
-                </center>
             </div>
             <br>
             <div class="form-inline">
