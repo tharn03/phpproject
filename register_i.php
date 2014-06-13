@@ -59,7 +59,8 @@
             ");
     
     $perid=$_POST['per_id'];
-    $idperson = mysql_query("SELECT idperson_info FROM person_info WHERE per_id='$perid'");
+    $rdate=$_POST['rdate'];
+    $idperson = mysql_query("SELECT idperson_info FROM person_info WHERE per_id='$perid' AND date='$rdate'");
     $idperson_ar=mysql_fetch_assoc($idperson);
     $idperson_info=$idperson_ar['idperson_info'];
     
@@ -91,7 +92,7 @@
             ,'$idperson_info'
             )
             ");
-    
+
     //Insert into edu_info
     
         foreach($_POST['edu_num'] AS $i => $text1) {
@@ -112,8 +113,8 @@
                             ");
                    }
               }
-    
-    //Insert into work_info #1
+
+    //Insert into work_info #a
           
           foreach($_POST['work_name'] AS $i => $text1) {
                if($_POST['work_name'][$i]==""){
@@ -137,8 +138,8 @@
                         ");
                }
           }
-          
-    //Insert into work_info #2
+
+    //Insert into work_info #b
           
           mysql_query("INSERT INTO work_info (work2_txt,work2_position,work2_name,work2_salary,work2_contact,work2_star
               ,person_info_idperson_info) VALUES (
@@ -151,8 +152,8 @@
                         ,'$idperson_info'
                         )
                         ");
-          
-    //Insert into work_info #3
+
+    //Insert into work_info #c
           
           mysql_query("INSERT INTO work_info (work3_name,work3_start,work3_stop,work3_position,work3_class,work3_cause,work3_salary
                         ,work3_contact,work3_tel,work3_star,person_info_idperson_info) VALUES (
@@ -169,7 +170,7 @@
                         ,'$idperson_info'
                         )
                         ");
-     
+
     //Insert into app_info
           
           mysql_query("INSERT INTO app_info (twork_start,twork_stop,twork_name,twork_class,twork_cate,twork_position,twork_add
@@ -216,7 +217,7 @@
                         ,'$idperson_info'
                         )
                         ");
-          
+
     //Insert into lang_info
           
           mysql_query("INSERT INTO lang_info (
@@ -242,7 +243,7 @@
                         ,'$idperson_info'
                         )
                         ");
-          
+
     //Insert into training_info
           
           foreach($_POST['trn_name'] AS $i => $text1) {
@@ -261,7 +262,7 @@
                         ");
                }
           }
-          
+
     //Insert into couple_info
           
           mysql_query("INSERT INTO couple_info (cou_st,cou_num,cou_y,cou_salary,cou_name,cou_b,cou_add,cou_moo,cou_soi,cou_road
@@ -289,7 +290,7 @@
                         ,'$idperson_info'
                         )
                         ");
-          
+
     //Insert into fam_info
           
           mysql_query("INSERT INTO fam_info (fam_fa_name,fam_fa_st,fam_fa_age,fam_fa_work,fam_fa_add,fam_fa_tel,fam_ma_name
@@ -311,7 +312,7 @@
                         ,'$idperson_info'
                         )
                         ");
-          
+
     //Insert into fam_bro_info
           
           foreach($_POST['fam_tb_num'] AS $i => $text1) {
@@ -331,7 +332,7 @@
                         ");
                }
           }
-          
+
     //Insert into ref_info
           
           foreach($_POST['ref_num'] AS $i => $text1) {
@@ -352,7 +353,7 @@
                         ");
                }
           }
-          
+
     //Insert into interest_info
           
           mysql_query("INSERT INTO interest_info (start_work,branch,branch_txt,branch_send,work_oth,study,study_when
@@ -369,7 +370,7 @@
                         ,'$idperson_info'
                         )
                         ");
-          
+
     //Insert into question_info
           
           mysql_query("INSERT INTO question_info (chk_1,chk_2,chk_3,chk_4,chk_5,chk_5_prov,chk_6,chk_6_name,chk_7,chk_7_name
@@ -397,12 +398,10 @@
                         ,'$idperson_info'
                         )
                         ");
-          
+
+
     mysql_close();
     
-    echo require_once "register_up.php";
-    echo $idperson_info;
-    echo require_once "register_down.php";
+          echo require_once "register_up.php";
     
-    //header("location:thank.php");
     ?>

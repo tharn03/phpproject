@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <title>eRecruitment System - NiyomPanich Co.,Ltd.</title>
@@ -31,18 +36,19 @@
         <div class="centerdiv">
             <div class="row">
                 <div class="span3"></div>
-                <div class="span2" id="loginbox">
+                <div class="span2 " id="loginbox">
                     <form class="form-horizontal" method="post" action="register-ny.php">
                         <center>
-                            <h3><strong>หมายเลขใบสมัครของท่านคือ</strong></h3>
+                            <h3 class="text-error"><strong>ERROR</strong></h3>
                             <br>
-                            <hr>
-                            <h2><?php echo $idperson_info;?></h2>
-                            <hr>
+                            <h2>
+                                กรุณาเลือกบริษัทให้ถูกต้อง
+                            </h2>
+                            <br><br>
+                            
                             <br>
-                            <h5 class="text-center text-error"><strong>***กรุณาจดหมายเลขใบสมัครของท่านไว้***</strong></h5>
-                            <br>
-                            <a href="index.php" class="btn btn-primary">กลับหน้าหลัก</a>
+                            
+                            <INPUT Type="button" VALUE="Back" class="btn" onClick="history.go(-1);return true;">
                         </center>
                       </form>
                  </div>

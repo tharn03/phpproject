@@ -4,6 +4,11 @@
     require_once "nocache.inc.php";
     require_once "datahelper.inc.php";
     
+    $id = $_GET['id'];
+    
+    $result = mysql_query("SELECT * FROM person_info WHERE idperson_info like '%$id%'");
+    $count = mysql_num_rows($result);
+    
     mysql_close();
 ?>
 <html>
@@ -27,7 +32,7 @@
         <?php require_once "emmenu.html";?>
         <br><br><br>
         <div class="container" id="border">
-            <form id="signup" class="form-inline" method="post" action="register_i.php">
+            <form id="signup" class="form-inline" method="post" action="update_i.php">
                 <input type="hidden" name="corp" value="NY" >
             <div>
                 <center>
@@ -987,8 +992,8 @@
             <br>
             <div class="text-center">
                         
-                <input type="submit" value="บันทึกข้อมูล" class="btn btn-info" data-loading-text="กรุณารอ..." onclick="return confirm('ยืนยันข้อมูลทั้งหมดถูกต้อง !!!')">&nbsp;&nbsp;
-                <input type="reset" value="ล้างข้อมูล" class="btn btn-danger">
+                <input type="submit" value="แก้ไขข้อมูล" class="btn btn-info" data-loading-text="กรุณารอ..." onclick="return confirm('ยืนยันข้อมูลทั้งหมดถูกต้อง !!!')">&nbsp;&nbsp;
+                <INPUT Type="button" VALUE="Back" class="btn" onClick="history.go(-1);return true;">
                 
             </div>
             </form>

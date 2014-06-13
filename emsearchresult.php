@@ -4,12 +4,43 @@
     require_once "nocache.inc.php";
     require_once "datahelper.inc.php";
     
-    $sdate=$_POST['month'];
-    $edate=$_POST['year'];
+    $month=$_POST['month'];
+    $year=$_POST['year'];
     $corp=$_POST['corp'];
     
-    $result = mysql_query("SELECT * FROM person_info WHERE (corp like '$corp') OR (date like '$sdate')");
-    $count = mysql_num_rows($result);
+    
+    if($month=="ALL" && $year=="ALL" && $corp=="ALL"){
+        $result = mysql_query("SELECT * FROM person_info");
+        $count = mysql_num_rows($result);
+    }
+    else if($month!="ALL" && $year=="ALL" && $corp=="ALL"){
+        $result = mysql_query("SELECT * FROM person_info WHERE MONTH(date)='$month'");
+        $count = mysql_num_rows($result);
+    }
+    else if($month=="ALL" && $year!=="ALL" && $corp=="ALL"){
+        $result = mysql_query("SELECT * FROM person_info WHERE YEAR(date)='$year'");
+        $count = mysql_num_rows($result);
+    }
+    else if($month=="ALL" && $year=="ALL" && $corp!=="ALL"){
+        $result = mysql_query("SELECT * FROM person_info WHERE corp like '$corp'");
+        $count = mysql_num_rows($result);
+    }
+    else if($month!=="ALL" && $year!=="ALL" && $corp=="ALL"){
+        $result = mysql_query("SELECT * FROM person_info WHERE MONTH(date)='$month' AND YEAR(date)='$year'");
+        $count = mysql_num_rows($result);
+    }
+    else if($month=="ALL" && $year!=="ALL" && $corp!=="ALL"){
+        $result = mysql_query("SELECT * FROM person_info WHERE corp like '$corp' AND YEAR(date)='$year'");
+        $count = mysql_num_rows($result);
+    }
+    else if($month!=="ALL" && $year=="ALL" && $corp=="ALL"){
+        $result = mysql_query("SELECT * FROM person_info WHERE corp like '$corp' AND MONTH(date)='$month'");
+        $count = mysql_num_rows($result);
+    }
+    else{
+        $result = mysql_query("SELECT * FROM person_info WHERE corp like '$corp' AND MONTH(date)='$month' AND YEAR(date)='$year'");
+        $count = mysql_num_rows($result);
+    }
     
     mysql_close();
 ?>
@@ -43,7 +74,7 @@
             </div>
             <br>
             <div class="well">
-                    <legend>ผลการค้นหาระหว่างวันที่ <?php echo $sdate;?> ถึง <?php echo $edate;?> พบ <?php echo $count;?> รายการ</legend>
+                    <legend>ผลการค้นหาเดือน <?php echo $month;?> ปี <?php echo $year;?> ของบริษัท <?php echo $corp;?></legend>
                     <table width='900' class="table table-bordered">
                         <tr class="info">
                             <td style="text-align: center">ลำดับ</td>
@@ -55,7 +86,7 @@
                             <td style="text-align: center">รายละเอียด</td>
                         </tr>
                         <?php $i='1';?>
-                        <?php while($searchresult = mysql_fetch_array($result)) { ?>
+                        <?php while($searchresult = mysql_fetch_assoc($result)) { ?>
                         <tr>
                             <td><?php echo $i; ?></td>
                             <td><?php echo $searchresult['idperson_info']; ?></td>

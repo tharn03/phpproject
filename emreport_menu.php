@@ -39,15 +39,15 @@ and open the template in the editor.
                 <div class="span3"></div>
                 <div class="span2 " id="loginbox">
                     <div>
-                        <center><h3>ระบบค้นหาใบสมัครงาน</h3></center>
+                        <center><h3>ระบบออกรายงาน</h3></center>
                     </div>
                     <br>
                     <form class="form-horizontal" method="post" action="emsearchresult.php">
                         <div class="control-group">
-                          <label class="control-label" for="inputEmail">เดือน</label>
+                            <label class="control-label" for="inputEmail"><input type="radio" name="report" value="1" checked>&nbsp;เดือน</label>
                           <div class="controls">
                               <select name="month">
-                                <option value="ALL" selected>======</option>
+                                <option value="" selected>กรุณาเลือกเดือน</option>
                                 <option value="01">มกราคม</option>
                                 <option value="02">กุมภาพันธ์</option>
                                 <option value="03">มีนาคม</option>
@@ -64,10 +64,10 @@ and open the template in the editor.
                           </div>
                         </div>
                         <div class="control-group">
-                          <label class="control-label" >ปี</label>
+                          <label class="control-label" ><input type="radio" name="report" value="2">&nbsp;ปี</label>
                           <div class="controls">
                               <select name="year">
-                                  <option value="ALL" selected>======</option>
+                                  <option value="" selected>กรุณาเลือกปี</option>
                                 <option value="2012">2555</option>
                                 <option value="2013">2556</option>
                                 <option value="2014">2557</option>
@@ -93,7 +93,7 @@ and open the template in the editor.
                             <div class="controls">
 
                                   <select name="corp">
-                                      <option value="ALL" selected>======</option>
+                                      <option value="ALL" selected>ทุกบริษัท</option>
                                       <option value="NY">บริษัท นิยมพานิช จำกัด</option>
                                       <option value="TC">บริษัท โตโยต้าเชียงใหม่ จำกัด</option>
                                       <option value="WW">บริษัท วินเวฟ จำกัด</option>

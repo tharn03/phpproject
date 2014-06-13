@@ -4,7 +4,7 @@
     require_once "nocache.inc.php";
     require_once "datahelper.inc.php";
     
-    $result = mysql_query("SELECT * FROM person_info");
+    $result = mysql_query("SELECT * FROM person_info ORDER BY idperson_info DESC");
     $count = mysql_num_rows($result);
     
     mysql_close();
