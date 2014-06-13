@@ -41,10 +41,21 @@ and open the template in the editor.
                     <div>
                         <center><h3>ระบบออกรายงาน</h3></center>
                     </div>
+                    
+                    <form class="form-horizontal" method="post" action="emreport.php">
+                        <div class="form-inline">
+                        <center>
+                        <label class="radio">
+                            <input type="radio" name="report" value="1" checked> รายงานเดือน&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="report" value="2"> รายงานปี
+                        </label>
+                        </center>
+                    </div>
                     <br>
-                    <form class="form-horizontal" method="post" action="emsearchresult.php">
                         <div class="control-group">
-                            <label class="control-label" for="inputEmail"><input type="radio" name="report" value="1" checked>&nbsp;เดือน</label>
+                            <label class="control-label" for="inputEmail">เดือน</label>
                           <div class="controls">
                               <select name="month">
                                 <option value="" selected>กรุณาเลือกเดือน</option>
@@ -64,7 +75,7 @@ and open the template in the editor.
                           </div>
                         </div>
                         <div class="control-group">
-                          <label class="control-label" ><input type="radio" name="report" value="2">&nbsp;ปี</label>
+                          <label class="control-label" >ปี</label>
                           <div class="controls">
                               <select name="year">
                                   <option value="" selected>กรุณาเลือกปี</option>
@@ -104,13 +115,13 @@ and open the template in the editor.
                                   </select>
                             </div>  
                         </div>
-                        <br><br>
+                        <br>
                         <div class="control-group">
-                          <div class="controls">
-                            <button type="submit" class="btn btn-primary">ค้นหา</button>
+                          <center>
+                            <button type="submit" class="btn btn-primary">ออกรายงาน</button>
                             &nbsp;&nbsp;
                             <button type="reset" class="btn btn">Reset</button>
-                          </div>
+                          </center>
                         </div>
                       </form>
                  </div>
