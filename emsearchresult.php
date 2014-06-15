@@ -1,3 +1,20 @@
+<?php
+    session_start(); //ฟังก์ชั่นเริ่มใช้งาน session
+    require_once "config.inc.php";
+    require_once "nocache.inc.php";
+    require_once "datahelper.inc.php";
+    
+
+    if($_SESSION["userid"]=="")
+    {	
+        header("location:index2.php");
+    }
+    else{
+        $sqlquery = mysql_query("SELECT * FROM member WHERE UserID = '".$_SESSION['userid']."'");
+        $user = mysql_fetch_assoc($sqlquery);
+        
+    }
+?>
 <!DOCTYPE html>
 <?php
     require_once "config.inc.php";
@@ -62,7 +79,7 @@
                 background-attachment:fixed;
                 }
         </style>
-        <?php require_once "emmenu.html";?>
+        <?php require_once "emmenu.php";?>
         <br><br><br>
         <div class="container" id="border">
             <div>

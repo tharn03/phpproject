@@ -1,37 +1,8 @@
-<?php
-    session_start(); //ฟังก์ชั่นเริ่มใช้งาน session
-    require_once "config.inc.php";
-    require_once "nocache.inc.php";
-    require_once "datahelper.inc.php";
-    
-
-    if($_SESSION["userid"]=="")
-    {	
-        header("location:index2.php");
-    }
-    else{
-        $sqlquery = mysql_query("SELECT * FROM member WHERE UserID = '".$_SESSION['userid']."'");
-        $user = mysql_fetch_assoc($sqlquery);
-        
-    }
-    
-?>
 <!DOCTYPE html>
 <?php
     require_once "config.inc.php";
     require_once "nocache.inc.php";
     require_once "datahelper.inc.php";
-    
-    $id = $_GET['id'];
-    
-    $query = mysql_query("SELECT * FROM person_info WHERE idperson_info like '%$id%'");
-    $result = mysql_fetch_assoc($query);
-    
-    $query2 = mysql_query("SELECT * FROM add_info WHERE person_info_idperson_info like '%$id%'");
-    $result2 = mysql_fetch_assoc($query2);
-    
-    $query3 = mysql_query("SELECT * FROM edu_info WHERE person_info_idperson_info like '%$id%'");
-
     
     mysql_close();
 ?>
@@ -53,174 +24,98 @@
                 background-attachment:fixed;
                 }
         </style>
-        <?php require_once "emmenu.php";?>
+        <?php require_once "mainmenu.html";?>
         <br><br><br>
         <div class="container" id="border">
-            <form id="signup" class="form-inline" method="post" action="emedit_i.php">
-                <input type="hidden" name="id" value="<?php echo $id; ?>" >
+            <form id="signup" class="form-inline" method="post" action="register_i.php">
+                <input type="hidden" name="corp" value="NW" >
             <div>
                 <center>
-                <img src="img/edittxt.jpg" width="300">
-                <br><br>
+                    <br>
+                    <img src="img/nwtxt.jpg" width="300">
+                    <hr>
                 </center>
             </div>
             <br>
             <div class="form-inline">
-                วันที่สมัคร&nbsp;<input class="input-small uneditable-input" type="text" name="rdate" value="<?php echo $result['date']; ?>"/>&nbsp;
-                เลขที่ใบสมัคร&nbsp;<input class="input-small uneditable-input" type="text" name="idperson_info" value="<?php echo $result['idperson_info']; ?>"/>
-                ตำแหน่ง&nbsp;1.&nbsp;<input type="text" name="position1" value="<?php echo $result['position1']; ?>" autofocus>
-                2.&nbsp;<input type="text" name="position2" value="<?php echo $result['position2']; ?>">
-                
+                วันที่สมัคร&nbsp;<input class="input-small uneditable-input" type="text" name="rdate" value="<?php echo date('Y-m-d'); ?>"/>
+                ตำแหน่ง&nbsp;1.&nbsp;<input type="text" name="position1" autofocus>
+                2.&nbsp;<input type="text" name="position2">
             </div>
             <br>
             <div class="well">
                 <legend>ข้อมูลส่วนตัว</legend>
                 <div class="form-inline">    
                         <label class="radio">
-                            <?php 
-                                if($result['prefixth']=='นาย'){
-                                    ?><input type="radio" name="prefixth" value="นาย" checked> นาย<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixth" value="นาย"> นาย<?php
-                                }
-                            ?>
+                            <input type="radio" name="prefixth" value="นาย" checked> นาย
                         </label>
                         <label class="radio">
-                            <?php 
-                                if($result['prefixth']=='นางสาว'){
-                                    ?><input type="radio" name="prefixth" value="นางสาว" checked> นางสาว<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixth" value="นางสาว" > นางสาว<?php
-                                }
-                            ?>
+                            <input type="radio" name="prefixth" value="นางสาว" > นางสาว
                         </label>
                         <label class="radio">
-                            <?php 
-                                if($result['prefixth']=='นาง'){
-                                    ?><input type="radio" name="prefixth" value="นาง" checked> นาง<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixth" value="นาง" > นาง<?php
-                                }
-                            ?>
+                            <input type="radio" name="prefixth" value="นาง" > นาง
                         </label>
                         <label class="radio">
-                            <?php 
-                                if($result['prefixth']=='0'){
-                                    ?><input type="radio" name="prefixth" value="0" checked> อื่นๆ<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixth" value="0" > อื่นๆ<?php
-                                }
-                            ?>
+                            <input type="radio" name="prefixth" value="0" > อื่นๆ
                         </label>
-                    <input type="text" name="prefix_thbox" class="input-small" value="<?php echo $result['prefix_thbox']; ?>">&nbsp;
-                        ชื่อ&nbsp;<input class="span2" type="text" name="fname" value="<?php echo $result['fname']; ?>" required>&nbsp;&nbsp;
-                        นามสกุล&nbsp;<input class="span2" type="text" name="lname" value="<?php echo $result['lname']; ?>" required>&nbsp;&nbsp;
-                        ชื่อเล่น&nbsp;<input class="span2" type="text" name="nname" value="<?php echo $result['nname']; ?>">
+                        <input type="text" name="prefix_thbox" class="input-small">&nbsp;
+                        ชื่อ&nbsp;<input class="span2" type="text" name="fname" required>&nbsp;&nbsp;
+                        นามสกุล&nbsp;<input class="span2" type="text" name="lname" required>&nbsp;&nbsp;
+                        ชื่อเล่น&nbsp;<input class="span2" type="text" name="nname">
                     </div>
                         <br>
                     <div class="inline">
                         
                         <label class="radio">
-                            <?php 
-                                if($result['prefixen']=='Mr.'){
-                                    ?><input type="radio" name="prefixen" value="Mr." checked> Mr.<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixen" value="Mr." > Mr.<?php
-                                }
-                            ?>
-                            
+                            <input type="radio" name="prefixen" value="Mr." checked> Mr.
                         </label>
                         <label class="radio">
-                            <?php 
-                                if($result['prefixen']=='Ms.'){
-                                    ?><input type="radio" name="prefixen" value="Ms." checked=""> Ms.<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixen" value="Ms." > Ms.<?php
-                                }
-                            ?>
-                            
+                            <input type="radio" name="prefixen" value="Ms." > Ms.
                         </label>
                         <label class="radio">
-                            <?php 
-                                if($result['prefixen']=='Mrs.'){
-                                    ?><input type="radio" name="prefixen" value="Mrs." checked> Mrs.<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixen" value="Mrs." > Mrs.<?php
-                                }
-                            ?>
-                            
+                            <input type="radio" name="prefixen" value="Mrs." > Mrs.
                         </label>
                         <label class="radio">
-                            <?php 
-                                if($result['prefixen']=='0'){
-                                    ?><input type="radio" name="prefixen" value="0" checked> etc.<?php
-                                }
-                                else{
-                                    ?><input type="radio" name="prefixen" value="0" > etc.<?php
-                                }
-                            ?>
-                            
+                            <input type="radio" name="prefixen" value="0" > etc.
                         </label>
-                        <input type="text" name="prefix_enbox" class="input-small" value="<?php echo $result['prefix_enbox']; ?>">&nbsp;
-                        Firstname&nbsp;<input class="span2" type="text" name="fname_en" value="<?php echo $result['fname_en']; ?>">&nbsp;&nbsp;
-                        Lastname&nbsp;<input class="span2" type="text" name="lname_en" value="<?php echo $result['lname_en']; ?>">&nbsp;&nbsp;
-                        Nickname&nbsp;<input class="input-small" type="text" name="nname_en" value="<?php echo $result['nname_en']; ?>">
+                        <input type="text" name="prefix_enbox" class="input-small">&nbsp;
+                        Firstname&nbsp;<input class="span2" type="text" name="fname_en">&nbsp;&nbsp;
+                        Lastname&nbsp;<input class="span2" type="text" name="lname_en">&nbsp;&nbsp;
+                        Nickname&nbsp;<input class="input-small" type="text" name="nname_en">
 
                     </div>
                         <br>
                     <div class="inline">
                         
                         เพศ&nbsp;&nbsp;&nbsp;<select name="sex" class="span2">
-                                                <?php 
-                                                    if($result['sex']=='1'){
-                                                        ?><option value="1" selected>ชาย</option><?php
-                                                    }
-                                                    else{
-                                                        ?><option value="1">ชาย</option><?php
-                                                    }
-                                                ?>
-                                                <?php 
-                                                    if($result['sex']=='2'){
-                                                        ?><option value="2" selected>หญิง</option><?php
-                                                    }
-                                                    else{
-                                                        ?><option value="2" >หญิง</option><?php
-                                                    }
-                                                ?>
-                                                
+                                                <option value="1" selected>ชาย</option>
+                                                <option value="2" >หญิง</option>
                                             </select>&nbsp;&nbsp;
-                        อายุ&nbsp;<input class="span1" id="prependedInput1" type="text" name="age" value="<?php echo $result['age']; ?>">&nbsp;ปี&nbsp;&nbsp;
-                        วัน/เดือน/ปี&nbsp;เกิด&nbsp;<input class="span2" id="prependedInput1" type="date" name="bdate" value="<?php echo $result['bdate']; ?>" required>&nbsp;&nbsp;
-                        สถานที่เกิด&nbsp;<input name="show_arti_topic" type="text" id="show_arti_topic" size="50" value="<?php echo $result['person_b_place']; ?>"/>
+                        อายุ&nbsp;<input class="span1" id="prependedInput1" type="text" name="age">&nbsp;ปี&nbsp;&nbsp;
+                        วัน/เดือน/ปี&nbsp;เกิด&nbsp;<input class="span2" id="prependedInput1" type="date" name="bdate" required>&nbsp;&nbsp;
+                        สถานที่เกิด&nbsp;<input name="show_arti_topic" type="text" id="show_arti_topic" size="50" />
                                       <input name="h_arti_id" type="hidden" id="h_arti_id" value="" />
                         
                     </div>
                         <br>
                     <div class="inline">
                         
-                        น้ำหนัก&nbsp;<input class="input-small" id="prependedInput1" type="text" name="weight" value="<?php echo $result['weight']; ?>">&nbsp;ก.ก.&nbsp;&nbsp;
-                        ส่วนสูง&nbsp;<input class="input-small" id="prependedInput1" type="text" name="height" value="<?php echo $result['height']; ?>">&nbsp;ซ.ม.&nbsp;&nbsp;
+                        น้ำหนัก&nbsp;<input class="input-small" id="prependedInput1" type="text" name="weight">&nbsp;ก.ก.&nbsp;&nbsp;
+                        ส่วนสูง&nbsp;<input class="input-small" id="prependedInput1" type="text" name="height">&nbsp;ซ.ม.&nbsp;&nbsp;
                         กรุ๊ปเลือด&nbsp;<select class="input-mini" name="blood">
                                         <option value="o">O</option>
                                         <option value="a">A</option>
                                         <option value="b">B</option>
                                         <option value="ab">AB</option>
                                     </select>&nbsp;&nbsp;
-                        ศาสนา&nbsp;<input class="input-small" id="prependedInput1" type="text" name="religion" value="<?php echo $result['religion']; ?>">&nbsp;&nbsp;
-                        เชื้อชาติ&nbsp;<input class="input-small" id="prependedInput1" type="text" name="national" value="<?php echo $result['national']; ?>" required>&nbsp;&nbsp;
+                        ศาสนา&nbsp;<input class="input-small" id="prependedInput1" type="text" name="religion" >&nbsp;&nbsp;
+                        เชื้อชาติ&nbsp;<input class="input-small" id="prependedInput1" type="text" name="national" required>&nbsp;&nbsp;
                         
                     </div>
                         <br>
                     <div class="inline">
                         
-                        สัญชาติ&nbsp;<input class="input-small" id="prependedInput1" type="text" name="nationality" value="<?php echo $result['nationality']; ?>" required>&nbsp;&nbsp;
+                        สัญชาติ&nbsp;<input class="input-small" id="prependedInput1" type="text" name="nationality" required>&nbsp;&nbsp;
                         สถานะ&nbsp;
                         <label class="radio">
                             <input type="radio" name="status" value="1" checked> โสด
@@ -228,7 +123,7 @@
                         <label class="radio">
                             <input type="radio" name="status" value="2" > สมรส
                         </label>&nbsp;&nbsp;
-                        E-Mail&nbsp;<input class="input" id="prependedInput1" type="text" name="email" value="<?php echo $result['email']; ?>">
+                        E-Mail&nbsp;<input class="input" id="prependedInput1" type="text" name="email">
                         
                     </div>
                         <br>
@@ -236,13 +131,13 @@
                         
                         สถานะทางการทหาร
                         <label class="radio">
-                            <input type="radio" name="sold_st" value="1" checked>จะถูกเกณฑ์ทหารปี พ.ศ.<input class="input-mini" type="text" name="sold_y" value="<?php echo $result['sold_y']; ?>">&nbsp;&nbsp; 
+                            <input type="radio" name="sold_st" value="1" checked>จะถูกเกณฑ์ทหารปี พ.ศ.<input class="input-mini" type="text" name="sold_y">&nbsp;&nbsp; 
                         </label>
                         <label class="radio">
                             <input type="radio" name="sold_st" value="2" >เคยถูกเกณ์ทหาร&nbsp;
                         </label>
                         <label class="radio">
-                            <input type="radio" name="sold_st" value="3" >ได้รับการยกเว้นเพราะ&nbsp;<input class="input" type="text" name="sold_st_txt" value="<?php echo $result['sold_st_txt']; ?>">
+                            <input type="radio" name="sold_st" value="3" >ได้รับการยกเว้นเพราะ&nbsp;<input class="input" type="text" name="sold_st_txt">
                         </label>
                         
                     </div>
@@ -254,10 +149,10 @@
                             <input type="radio" name="disease" value="1" checked>ไม่มี&nbsp;
                         </label>
                         <label class="radio">
-                            <input type="radio" name="disease" value="2" >มี&nbsp;<input class="input-small" type="text" name="disease_txt" value="<?php echo $result['disease_txt']; ?>">&nbsp; 
+                            <input type="radio" name="disease" value="2" >มี&nbsp;<input class="input-small" type="text" name="disease_txt">&nbsp; 
                         </label>
-                        แพ้ยา&nbsp;<input class="input" type="text" name="med" value="<?php echo $result['med']; ?>">&nbsp;&nbsp;
-                        หมายเหตุ&nbsp;<input class="input" type="text" name="med_star" value="<?php echo $result['med_star']; ?>">
+                        แพ้ยา&nbsp;<input class="input" type="text" name="med">&nbsp;&nbsp;
+                        หมายเหตุ&nbsp;<input class="input" type="text" name="med_star">
                         
                     </div>
                         <br>
@@ -278,17 +173,17 @@
                 <legend>เอกสารประจำตัว</legend>
                 <div class="inline">
                         
-                    เลขที่บัตรประชาชน&nbsp;<input class="input" type="number" name="per_id" value="<?php echo $result['per_id']; ?>" required>&nbsp;&nbsp; 
-                        ออกให้&nbsp;ณ&nbsp;อำเภอ&nbsp;<input class="input-small" type="text" name="per_id_amphur" value="<?php echo $result['per_id_amphur']; ?>" required>&nbsp;&nbsp;
-                        จังหวัด&nbsp;<input name="show_arti_topic2" type="text" id="show_arti_topic2" class="input-medium" value="<?php echo $result['per_id_prov']; ?>" required/>
+                    เลขที่บัตรประชาชน&nbsp;<input class="input" type="number" name="per_id" required>&nbsp;&nbsp; 
+                        ออกให้&nbsp;ณ&nbsp;อำเภอ&nbsp;<input class="input-small" type="text" name="per_id_amphur" required>&nbsp;&nbsp;
+                        จังหวัด&nbsp;<input name="show_arti_topic2" type="text" id="show_arti_topic2" class="input-medium" required/>
                                    <input name="h_arti_id2" type="hidden" id="h_arti_id2" value="" />
                         
                 </div>
                 <br>
                 <div class="inline">
                         
-                        วันที่ออกบัตร&nbsp;<input class="input" type="date" name="per_mfd" value="<?php echo $result['per_mfd']; ?>" required>&nbsp;&nbsp;
-                        วันที่หมดอายุ&nbsp;<input class="input" type="date" name="per_exp" value="<?php echo $result['per_exp']; ?>" required>&nbsp;&nbsp;
+                        วันที่ออกบัตร&nbsp;<input class="input" type="date" name="per_mfd" required>&nbsp;&nbsp;
+                        วันที่หมดอายุ&nbsp;<input class="input" type="date" name="per_exp" required>&nbsp;&nbsp;
                         
                 </div>
                 
@@ -298,27 +193,27 @@
                     <div class="inline">
                         
                         <strong>ที่อยู่ปัจจุบัน</strong>&nbsp;
-                        เลขที่&nbsp;<input class="input-mini" type="text" name="add_num" value="<?php echo $result2['add_num']; ?>">&nbsp;&nbsp;
-                        หมู่&nbsp;<input class="input-small" type="text" name="add_moo" value="<?php echo $result2['add_moo']; ?>">&nbsp;&nbsp;
-                        ซอย&nbsp;<input class="input-small" type="text" name="add_soi" value="<?php echo $result2['add_soi']; ?>">&nbsp;&nbsp;
-                        ถนน&nbsp;<input class="input" type="text" name="add_road" value="<?php echo $result2['add_road']; ?>">&nbsp;&nbsp;
+                        เลขที่&nbsp;<input class="input-mini" type="text" name="add_num">&nbsp;&nbsp;
+                        หมู่&nbsp;<input class="input-small" type="text" name="add_moo">&nbsp;&nbsp;
+                        ซอย&nbsp;<input class="input-small" type="text" name="add_soi">&nbsp;&nbsp;
+                        ถนน&nbsp;<input class="input" type="text" name="add_road">&nbsp;&nbsp;
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        ตำบล/แขวง&nbsp;<input class="input" type="text" name="add_tumbon" value="<?php echo $result2['add_tumbon']; ?>">&nbsp;&nbsp;
-                        อำเภอ/เขต&nbsp;<input class="input" type="text" name="add_amphur" value="<?php echo $result2['add_amphur']; ?>">&nbsp;&nbsp;
-                        จังหวัด&nbsp;<input name="show_arti_topic3" type="text" id="show_arti_topic3" class="input-medium" value="<?php echo $result2['add_prov']; ?>" />
+                        ตำบล/แขวง&nbsp;<input class="input" type="text" name="add_tumbon">&nbsp;&nbsp;
+                        อำเภอ/เขต&nbsp;<input class="input" type="text" name="add_amphur">&nbsp;&nbsp;
+                        จังหวัด&nbsp;<input name="show_arti_topic3" type="text" id="show_arti_topic3" class="input-medium" />
                                    <input name="h_arti_id3" type="hidden" id="h_arti_id3" value="" />
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        รหัสไปรษณีย์&nbsp;<input class="input" type="text" name="add_post" value="<?php echo $result2['add_post']; ?>">&nbsp;&nbsp;
-                        โทรศัพท์&nbsp;<input class="input" type="text" name="add_tel" value="<?php echo $result2['add_tel']; ?>">&nbsp;&nbsp;
-                        มือถือ&nbsp;<input class="input" type="text" name="add_mobi" value="<?php echo $result2['add_mobi']; ?>">&nbsp;&nbsp;
+                        รหัสไปรษณีย์&nbsp;<input class="input" type="text" name="add_post">&nbsp;&nbsp;
+                        โทรศัพท์&nbsp;<input class="input" type="text" name="add_tel">&nbsp;&nbsp;
+                        มือถือ&nbsp;<input class="input" type="text" name="add_mobi">&nbsp;&nbsp;
                         
                     </div>
                     <br>
@@ -333,27 +228,27 @@
                     <div class="inline">
                         
                         <strong>ที่อยู่ตามทะเบียนบ้าน</strong>&nbsp;
-                        เลขที่&nbsp;<input class="input-mini" type="text" name="add2_num" value="<?php echo $result2['add2_num']; ?>">&nbsp;&nbsp;
-                        หมู่&nbsp;<input class="input-small" type="text" name="add2_moo" value="<?php echo $result2['add2_moo']; ?>">&nbsp;&nbsp;
-                        ซอย&nbsp;<input class="input-small" type="text" name="add2_soi" value="<?php echo $result2['add2_soi']; ?>">&nbsp;&nbsp;
-                        ถนน&nbsp;<input class="input" type="text" name="add2_road" value="<?php echo $result2['add2_road']; ?>">&nbsp;&nbsp;
+                        เลขที่&nbsp;<input class="input-mini" type="text" name="add2_num">&nbsp;&nbsp;
+                        หมู่&nbsp;<input class="input-small" type="text" name="add2_moo">&nbsp;&nbsp;
+                        ซอย&nbsp;<input class="input-small" type="text" name="add2_soi">&nbsp;&nbsp;
+                        ถนน&nbsp;<input class="input" type="text" name="add2_road">&nbsp;&nbsp;
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        ตำบล/แขวง&nbsp;<input class="input" type="text" name="add2_tumbon" value="<?php echo $result2['add2_tumbon']; ?>">&nbsp;&nbsp;
-                        อำเภอ/เขต&nbsp;<input class="input" type="text" name="add2_amphur" value="<?php echo $result2['add2_amphur']; ?>">&nbsp;&nbsp;
-                        จังหวัด&nbsp;<input name="show_arti_topic4" type="text" id="show_arti_topic4" class="input-medium" value="<?php echo $result2['add2_prov']; ?>" />
+                        ตำบล/แขวง&nbsp;<input class="input" type="text" name="add2_tumbon">&nbsp;&nbsp;
+                        อำเภอ/เขต&nbsp;<input class="input" type="text" name="add2_amphur">&nbsp;&nbsp;
+                        จังหวัด&nbsp;<input name="show_arti_topic4" type="text" id="show_arti_topic4" class="input-medium" />
                                    <input name="h_arti_id4" type="hidden" id="h_arti_id4" value="" />
                         
                     </div>
                     <br>
                     <div class="inline">
                         
-                        รหัสไปรษณีย์&nbsp;<input class="input" type="text" name="add2_post" value="<?php echo $result2['add2_post']; ?>">&nbsp;&nbsp;
-                        โทรศัพท์&nbsp;<input class="input" type="text" name="add2_tel" value="<?php echo $result2['add2_tel']; ?>">&nbsp;&nbsp;
-                        มือถือ&nbsp;<input class="input" type="text" name="add2_mobi" value="<?php echo $result2['add2_mobi']; ?>">&nbsp;&nbsp;
+                        รหัสไปรษณีย์&nbsp;<input class="input" type="text" name="add2_post">&nbsp;&nbsp;
+                        โทรศัพท์&nbsp;<input class="input" type="text" name="add2_tel">&nbsp;&nbsp;
+                        มือถือ&nbsp;<input class="input" type="text" name="add2_mobi">&nbsp;&nbsp;
                         
                     </div>
                     <div class="inline">
@@ -375,17 +270,6 @@
                             <td style="text-align: center"">คณะ</td>
                             <td style="text-align: center">สาขาวิชา</td>
                         </tr>
-                        <?php while($result3 = mysql_fetch_array($query3)) { ?>
-                        <tr>
-                            <td><input class="span1" type="text" name="edu_num[]" value="<?php echo $result3['edu_num']; ?>" ></td>
-                            <td><input class="input-mini" type="text" name="edu_eb[]" value="<?php echo $result3['edu_eb']; ?>"></td>
-                            <td><input class="input" type="text" name="edu_name[]" value="<?php echo $result3['edu_name']; ?>"></td>
-                            <td><input class="span1" type="text" name="edu_year[]" value="<?php echo $result3['edu_year']; ?>"></td>
-                            <td><input class="span1" type="text" name="edu_gpa[]" value="<?php echo $result3['edu_gpa']; ?>"></td>
-                            <td><input class="span2" type="text" name="edu_fac[]" value="<?php echo $result3['edu_fac']; ?>"></td>
-                            <td><input class="span2" type="text" name="edu_maj[]" value="<?php echo $result3['edu_maj']; ?>"></td>
-                        </tr>
-                        <?php } ?>
                         <tr>
                             <td><input class="span1" type="text" name="edu_num[]"></td>
                             <td><input class="input-mini" type="text" name="edu_eb[]"></td>
@@ -960,7 +844,140 @@
                     </table>
                     
             </div>
-
+            <div class="well">
+                    <legend>ความสนใจเกี่ยวกับงานของบริษัท</legend>
+                    <div class="inline">
+                        
+                        1.&nbsp;หากบริษัท นิยมพานิชย์ จำกัดพิจารณารับท่านเข้าทำงาน ท่านจะสามารถเริ่มงานได้เร็วที่สุดเมื่อใด&nbsp;&nbsp;<input class="span2" type="date" name="start_work">
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        2.&nbsp;ท่านประสงค์จะทำงานกับบริษัท นิยมพานิชย์ จำกัดที่&nbsp;&nbsp;
+                        <label class="radio">
+                            <input type="radio" name="branch" value="1" checked>สำนักงานใหญ่
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="branch" value="2">สาขา&nbsp;<input class="span2" type="text" name="branch_txt">
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="branch" value="3">ที่ใดก็ได้
+                        </label>
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        3.&nbsp;ท่านยินดีให้ทางบริษัท นิยมพานิชย์ จำกัด ส่งใบสมัครของท่านไปให้บริษัทฯ ในเครือเลือกในตำแหน่งที่ท่านสมัคร&nbsp;
+                        <label class="radio">
+                            <input type="radio" name="branch_send" value="1" checked>ยินดี
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="branch_send" value="2">ไม่ยินดี
+                        </label>
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        4.&nbsp;ท่านสมัครงานไว้กับที่ใดบ้าง&nbsp;<input class="span9" type="text" name="work_oth">
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        5.&nbsp;ท่านมีแผนที่จะศึกษาต่อหรือไม่&nbsp;
+                        <label class="radio">
+                            <input type="radio" name="study" value="1" checked>ไม่มี
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="study" value="1">มี
+                        </label>&nbsp;&nbsp;
+                        เมื่อไหร่&nbsp;<input class="span2" type="text" name="study_when">&nbsp;
+                        สถาบัน&nbsp;<input class="span2" type="text" name="study_name">&nbsp;
+                        สาขาวิชา&nbsp;<input class="span2" type="text" name="study_maj">
+                        
+                    </div>
+                    
+            </div>
+            <div class="well">
+                    <legend>ท่านทราบตำแหน่งงานว่างได้อย่างไร</legend>
+                    <div class="inline">
+                        
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_1" value="x">
+                            <input type="checkbox" name="chk_1"> หนังสือพิมพ์&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_2" value="x">
+                            <input type="checkbox" name="chk_2"> วิทยุ&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_3" value="x">
+                            <input type="checkbox" name="chk_3"> ป้ายประกาศในบริษัท&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_4" value="x">
+                            <input type="checkbox" name="chk_4"> Internet&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_5" value="x">
+                            <input type="checkbox" name="chk_5"> สำนักงานจัดหางานจังหวัด&nbsp;<input name="show_arti_topic6" type="text" id="show_arti_topic6" class="input-medium" />
+                                                                                        <input name="h_arti_id6" type="hidden" id="h_arti_id6" value="" />
+                        </label>
+                        
+                    </div>
+                    <hr>
+                    <div class="inline">
+                        
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_6" value="x">
+                            <input type="checkbox" name="chk_6"> รับสมัคร/ประกาศจากสถาบันการศึกษา&nbsp;
+                            <input class="span4" type="text" name="chk_6_name">&nbsp;
+                        </label>
+                        
+                    </div>
+                    <hr>
+                    <div class="inline">
+                        
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_7" value="x">
+                            <input type="checkbox" name="chk_7"> พนักงานบริษัทฯแนะนำ&nbsp;
+                            ชื่อ&nbsp;<input class="span3" type="text" name="chk_7_name">
+                            มีความสัมพันธ์ในฐานะ&nbsp;<input class="span2" type="text" name="chk_7_relation">
+                        </label>
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;แผนก&nbsp;<input class="span2" type="text" name="chk_7_part">
+                        ตำแหน่ง&nbsp;<input class="span2" type="text" name="chk_7_position">
+                        โทร&nbsp;<input class="span2" type="text" name="chk_7_tel">
+                        
+                    </div>
+                    <hr>
+                    <div class="inline">
+                        
+                        <label class="checkbox">
+                            <input type="hidden" name="chk_8" value="x">
+                            <input type="checkbox" name="chk_8" > บุคคลภายนอกแนะนำ&nbsp;
+                            ชื่อ&nbsp;<input class="span3" type="text" name="chk_8_name">
+                            มีความสัมพันธ์ในฐานะ&nbsp;<input class="span2" type="text" name="chk_8_relation">
+                        </label>
+                        
+                    </div>
+                    <br>
+                    <div class="inline">
+                        
+                        &nbsp;&nbsp;&nbsp;&nbsp;ที่อยู่/สถานที่ทำงาน&nbsp;<input class="span6" type="text" name="chk_8_add">&nbsp;
+                        โทร&nbsp;<input class="span2" type="tel" name="chk_8_tel">
+                        
+                    </div>
+                    
+            </div>
+            
             <div class="inline">
                         
                 <h4 class="text-center text-error"><strong>ข้าพเจ้าขอรับรองว่า&nbsp;ข้อความข้างต้นถูกต้อง&nbsp;และเป็นความจริงทุกประการ&nbsp;หากข้าพเจ้าให้ข้อความเป็นเท็จ&nbsp;
@@ -970,8 +987,8 @@
             <br>
             <div class="text-center">
                         
-                <input type="submit" value="แก้ไขข้อมูล" class="btn btn-info" data-loading-text="กรุณารอ..." onclick="return confirm('ยืนยันข้อมูลทั้งหมดถูกต้อง !!!')">&nbsp;&nbsp;
-                <INPUT Type="button" VALUE="Back" class="btn" onClick="history.go(-1);return true;">
+                <input type="submit" value="บันทึกข้อมูล" class="btn btn-info" data-loading-text="กรุณารอ..." onclick="return confirm('ยืนยันข้อมูลทั้งหมดถูกต้อง !!!')">&nbsp;&nbsp;
+                <input type="reset" value="ล้างข้อมูล" class="btn btn-danger">
                 
             </div>
             </form>

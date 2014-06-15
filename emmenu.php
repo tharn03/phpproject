@@ -15,7 +15,9 @@
                                 </div>
                             </form>
                         </li>
-                        <li><a href="#"><i class="icon-user"></i>&nbsp;ยินดีต้อนรับคุณปริศนา สาขาสนญ.</a></li>
+                        <li><a href="#"><i class="icon-user"></i>&nbsp;ยินดีต้อนรับ&nbsp;<?php echo $user['username'];?></a></li>
+                        <li></li>
+                        <li><a href="emlogout.php">ออกจากระบบ</a></li>
                     </ul>
                 </div>
             </div>

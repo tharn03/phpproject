@@ -1,3 +1,22 @@
+<?php
+    session_start(); //ฟังก์ชั่นเริ่มใช้งาน session
+    require_once "config.inc.php";
+    require_once "nocache.inc.php";
+    require_once "datahelper.inc.php";
+    
+
+    if($_SESSION["userid"]=="")
+    {	
+        header("location:index2.php");
+    }
+    else{
+        $sqlquery = mysql_query("SELECT * FROM member WHERE UserID = '".$_SESSION['userid']."'");
+        $user = mysql_fetch_assoc($sqlquery);
+        
+    }
+    
+    mysql_close();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.

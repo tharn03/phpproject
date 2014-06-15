@@ -1,3 +1,22 @@
+<?php
+    session_start(); //ฟังก์ชั่นเริ่มใช้งาน session
+    require_once "config.inc.php";
+    require_once "nocache.inc.php";
+    require_once "datahelper.inc.php";
+    
+
+    if($_SESSION["userid"]=="")
+    {	
+        header("location:index2.php");
+    }
+    else{
+        $sqlquery = mysql_query("SELECT * FROM member WHERE UserID = '".$_SESSION['userid']."'");
+        $user = mysql_fetch_assoc($sqlquery);
+        
+    }
+    
+    mysql_close();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -41,13 +60,11 @@ and open the template in the editor.
                         <center>
                             <h3><strong>ทำการอัพเดทข้อมูลของใบสมัคร</strong></h3>
                             <br>
-                            <h2>
-                                176
-                            </h2>
-<br><br>
+                            <h2><?php echo $idperson_info;?></h2>
+                            <br><br>
                             <h3><strong>เรียบร้อยแล้ว</strong></h3>
                             <br>
-                            <a href="index.php" class="btn btn-primary">กลับหน้าหลัก</a>
+                            <a href="emhome.php" class="btn btn-primary">กลับหน้าหลัก</a>
                         </center>
                       </form>
                  </div>

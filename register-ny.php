@@ -31,9 +31,9 @@
                 <input type="hidden" name="corp" value="NY" >
             <div>
                 <center>
-                <img src="img/nylogo.gif" width="80">
-                &nbsp;&nbsp;
-                <img src="img/nytxt.gif" width="300">
+                    <br>
+                    <img src="img/nytxt.jpg" width="300">
+                    <hr>
                 </center>
             </div>
             <br>
@@ -274,7 +274,7 @@
                             <td><input class="span1" type="text" name="edu_num[]"></td>
                             <td><input class="input-mini" type="text" name="edu_eb[]"></td>
                             <td><input class="input" type="text" name="edu_name[]"></td>
-                            <td><input class="span1" type="year" name="edu_year[]"></td>
+                            <td><input class="span1" type="text" name="edu_year[]"></td>
                             <td><input class="span1" type="text" name="edu_gpa[]"></td>
                             <td><input class="span2" type="text" name="edu_fac[]"></td>
                             <td><input class="span2" type="text" name="edu_maj[]"></td>

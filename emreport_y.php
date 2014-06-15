@@ -29,49 +29,37 @@
     <body>
     <?php require_once "emmenu.php";?>
     <?php 
-            if($month=='01'){
-                $monthname='มกราคม';
-            }
-            else if($month=='02'){
-                $monthname='กุมภาพันธ์';
-            }
-            else if($month=='03'){
-                $monthname='มีนาคม';
-            }
-            else if($month=='04'){
-                $monthname='เมษายน';
-            }
-            else if($month=='05'){
-                $monthname='พฤษภาคม';
-            }
-            else if($month=='06'){
-                $monthname='มิถุนายน';
-            }
-            else if($month=='07'){
-                $monthname='กรกฎาคม';
-            }
-            else if($month=='08'){
-                $monthname='สิงหาคม';
-            }
-            else if($month=='09'){
-                $monthname='กันยายน';
-            }
-            else if($month=='10'){
-                $monthname='ตุลาคม';
-            }
-            else if($month=='11'){
-                $monthname='พฤศจิกายน';
-            }
-            else if($month=='12'){
-                $monthname='ธันวาคม';
-            }
-            
-        ?>
+        if($corp=='ALL'){
+            $corpname='ทุกบริษัทในเครือ';
+        }
+        else if($corp=='NY'){
+            $corpname='บริษัท นิยมพานิช จำกัด';
+        }
+        else if($corp=='TC'){
+            $corpname='บริษัท โตโยต้าเชียงใหม่ จำกัด';
+        }
+        else if($corp=='WW'){
+            $corpname='บริษัท วินเวฟ จำกัด';
+        }
+        else if($corp=='MTA'){
+            $corpname='บริษัท แมทริกซ์ ฮอนด้า ออโตโมบิล จำกัด';
+        }
+        else if($corp=='MTI'){
+            $corpname='บริษัท แมทริกซ์ ฮอนด้า อินเตอร์เนชั่นแนล จำกัด';
+        }
+        else if($corp=='NW'){
+            $corpname='บริษัท นอร์ทเวฟ จำกัด';
+        }
+        else if($corp=='MSD'){
+            $corpname='บริษัท มิตรสินด่วน จำกัด';
+        }
+        
+    ?>
         <div class="centerdiv">
             <div class="row">
                 <div id="loginbox">
                         <center>
-                            <h3>รายงานประจำเดือน <?php echo $monthname;?> </h3>
+                            <h3>รายงานประจำปี <?php echo $yearbu;?> ของ <?php echo $corpname;?> </h3>
                             <br>
                             <div id="container" style="min-width: 500px; height: 450px; margin: 0 auto"></div>
                         </center>
@@ -91,20 +79,25 @@
                         type: 'column'
                     },
                     title: {
-                        text: 'ตารางเปรียบเทียบจำนวนผู้สมัครงานรายเดือน'
+                        text: 'ตารางเปรียบเทียบจำนวนผู้สมัครงานรายปี'
                     },
                     subtitle: {
                         text: 'ของ บริษัท นิยมพานิช จำกัด และบริษัทในเครือ'
                     },
                     xAxis: {
                         categories: [
-                            'นิยมพานิช',
-                            'โตโยต้าเชียงใหม่',
-                            'วินเวฟ',
-                            'แมทริกซ์ ออโตโมบิล',
-                            'แมทริกซ์ อินเตอร์เนชั่นแนล',
-                            'นอร์ทเวฟ',
-                            'มิตรสินด่วน'
+                            'มกราคม',
+                            'กุมภาพันธ์',
+                            'มีนาคม',
+                            'เมษายน',
+                            'พฤษภาคม',
+                            'มิถุนายน',
+                            'กรกฎาคม',
+                            'สิงหาคม',
+                            'กันยายน',
+                            'ตุลาคม',
+                            'พฤศจิกายน',
+                            'ธันวาคม'
 
                         ]
                     },
@@ -130,7 +123,7 @@
                     },
                     series: [{
                         name: 'ผู้สมัครงาน',
-                        data: [count[0],count[1],count[2],count[3],count[4],count[5],count[6]]
+                        data: [count[0],count[1],count[2],count[3],count[4],count[5],count[6],count[7],count[8],count[9],count[10],count[11]]
 
                     },]
                 });

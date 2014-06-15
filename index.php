@@ -50,8 +50,8 @@ and open the template in the editor.
                                 <li><a href="register-ny.php">บริษัท นิยมพานิช จำกัด</a></li>
                                 <li><a href="register-tc.php">บริษัท โตโยต้า เชียงใหม่ จำกัด</a></li>
                                 <li><a href="register-ww.php">บริษัท วินเวฟ จำกัด</a></li>
-                                <li><a href="register-mta.php">บริษัท แมทริกซ์ ออโตโมบิล จำกัด</a></li>
-                                <li><a href="register-mti.php">บริษัท แมทริกซ์ อินเตอร์เนชั่นแนล จำกัด</a></li>
+                                <li><a href="register-mta.php">บริษัท แมทริกซ์ ฮอนด้า ออโตโมบิล จำกัด</a></li>
+                                <li><a href="register-mti.php">บริษัท แมทริกซ์ ฮอนด้า อินเตอร์เนชั่นแนล จำกัด</a></li>
                                 <li><a href="register-nw.php">บริษัท นอร์ทเวฟ จำกัด</a></li>
                                 <li><a href="register-msd.php">บริษัท มิตรสินด่วน จำกัด</a></li>
                                 <hr>

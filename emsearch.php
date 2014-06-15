@@ -1,3 +1,22 @@
+<?php
+    session_start(); //ฟังก์ชั่นเริ่มใช้งาน session
+    require_once "config.inc.php";
+    require_once "nocache.inc.php";
+    require_once "datahelper.inc.php";
+    
+
+    if($_SESSION["userid"]=="")
+    {	
+        header("location:index2.php");
+    }
+    else{
+        $sqlquery = mysql_query("SELECT * FROM member WHERE UserID = '".$_SESSION['userid']."'");
+        $user = mysql_fetch_assoc($sqlquery);
+        
+    }
+    
+    mysql_close();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -32,14 +51,15 @@ and open the template in the editor.
         </style>
     </head>
     <body>
-        <?php require_once "emmenu.html";?>
+        <?php require_once "emmenu.php";?>
         
         <div class="centerdiv">
             <div class="row">
                 <div class="span3"></div>
                 <div class="span2 " id="loginbox">
                     <div>
-                        <center><h3>ระบบค้นหาใบสมัครงาน</h3></center>
+                        <center><img src="img/searchtxt.jpg" width="250"></center>
+                        <br>
                     </div>
                     <br>
                     <form class="form-horizontal" method="post" action="emsearchresult.php">
@@ -104,7 +124,7 @@ and open the template in the editor.
                                   </select>
                             </div>  
                         </div>
-                        <br><br>
+                        <br>
                         <div class="control-group">
                           <div class="controls">
                             <button type="submit" class="btn btn-primary">ค้นหา</button>
